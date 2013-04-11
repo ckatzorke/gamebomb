@@ -1,0 +1,4 @@
+gamebomb
+========
+
+Game collection management
