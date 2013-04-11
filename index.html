@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>GameBomb</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/gamebomb.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body ng-app="GameBomb">
+<div class="navbar navbar-inverse navbar-fixed-top" ng-controller="NavigationController">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" ng-click="navigate('')" href="">GameBomb</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="">
+                        <a ng-click="navigate('')" href=""><i class="icon-home"></i>Home</a>
+                    </li>
+                </ul>
+                <ul class="nav pull-right">
+                    <li><a class="btn-link" ng-click="navigate('config')" title="Settings"><i class="icon-cogs"></i></a></li>
+                </ul>
+                <ul class="nav pull-right">
+                    <li><a class="btn-link" ng-click="navigate('addgame')" title="Add Game"><i class="icon-plus"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header -->
+<header>
+</header>
+
+<!-- Main -->
+<div class="main container">
+    <ng-view></ng-view>
+</div>
+
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>Built with <a href="http://angularjs.org/" target="_blank">AngularJS</a>, using <a href="http://twitter.github.io/bootstrap/" target="_blank">Bootstrap</a>, with support of <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a></p>
+        <p>Game data provided by <img src="./img/logo-gb.png" width="37" height="25"><a href="http://www.giantbomb.com/">GiantBomb</a></p>
+        <ul class="footer-links">
+            <li><a href="" target="_blank">Github</a></li>
+            <li class="muted">&nbsp;</li>
+            <li><a href="">Documentation</a></li>
+            <li class="muted">&nbsp;</li>
+            <li><a href="">Mobile version</a></li>
+        </ul>
+    </div>
+</footer>
+</body>
+<script src="./lib/angular.min.js"></script>
+<script src="./lib/angular-resource.min.js"></script>
+<script src="./lib/angular-sanitize.min.js"></script>
+<script src="http://raw.github.com/ckatzorke/angular-giantbomb/master/angular-giantbomb.js"></script>
+<script src="./js/app.js"></script>
+<script src="./js/controllers.js"></script>
+</html>
