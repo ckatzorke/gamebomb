@@ -15,7 +15,45 @@ var GameBomb = angular.module('GameBomb', ['ngGiantBomb', 'ngSanitize']).
             })
             .when('/addgame', {
                 templateUrl: 'partials/addgame.html',
-                controller: 'AddGameController'
+                controller: 'AddGameController',
+                resolve: {
+                    search: function(){
+                        return {};
+                    }
+                }
+            })
+            .when('/search/:text', {
+                templateUrl: 'partials/addgame.html',
+                controller: 'AddGameController',
+                resolve: {
+                    search: AddGameController.search
+                }
             })
             .otherwise({redirectTo: '/'});
     }]);
+
+GameBomb.factory('GameBombConfigService', function($giantbomb){
+   var GBConfigService = {
+       _config : null,
+       save : function(config){
+            this._config = config;
+            localStorage.setItem('gamebombconfig', JSON.stringify(this._config));
+            console.log("Saving GameBomb configuration ", this._config);
+           //set api key
+           $giantbomb.setAPIKey(this._config.apikey);
+       },
+        get : function(){
+            if(this._config === null){
+                var confvalue = localStorage.getItem('gamebombconfig');
+                if(confvalue !== null){
+                    this._config = JSON.parse(confvalue);
+                    console.log("Loaded gamebobconfig object ", this._config);
+                    //set api key
+                    $giantbomb.setAPIKey(this._config.apikey);
+                }
+            }
+            return this._config;
+        }
+   };
+    return GBConfigService;
+});

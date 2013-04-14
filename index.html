@@ -9,25 +9,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body ng-app="GameBomb">
-<div class="navbar navbar-inverse navbar-fixed-top" ng-controller="NavigationController">
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="brand" ng-click="navigate('')" href="">GameBomb</a>
-            <div class="nav-collapse collapse">
-                <ul class="nav">
-                    <li class="">
-                        <a ng-click="navigate('')" href=""><i class="icon-home"></i>Home</a>
-                    </li>
-                </ul>
-                <ul class="nav pull-right">
-                    <li><a class="btn-link" ng-click="navigate('config')" title="Settings"><i class="icon-cogs"></i></a></li>
-                </ul>
-                <ul class="nav pull-right">
-                    <li><a class="btn-link" ng-click="navigate('addgame')" title="Add Game"><i class="icon-plus"></i></a></li>
-                </ul>
+<div ng-controller="NavigationController">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" ng-click="navigate('')" href="">GameBomb</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class="">
+                            <a ng-click="navigate('')" href=""><i class="icon-home"></i>Home</a>
+                        </li>
+                    </ul>
+                    <ul class="nav pull-right">
+                        <li><a class="btn-link" ng-click="navigate('config')" title="Settings"><i class="icon-cogs"></i></a></li>
+                    </ul>
+                    <ul class="nav pull-right">
+                        <li><a class="btn-link" ng-click="navigate('addgame')" title="Add Game"><i class="icon-plus"></i></a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
+
 </div>
 <!-- Header -->
 <header>
@@ -54,10 +57,13 @@
     </div>
 </footer>
 </body>
+<script src="./lib/underscore-min.js"></script>
 <script src="./lib/angular.min.js"></script>
 <script src="./lib/angular-resource.min.js"></script>
 <script src="./lib/angular-sanitize.min.js"></script>
 <script src="http://raw.github.com/ckatzorke/angular-giantbomb/master/angular-giantbomb.js"></script>
 <script src="./js/app.js"></script>
+<script src="./js/filters.js"></script>
 <script src="./js/controllers.js"></script>
+<script src="./js/directives.js"></script>
 </html>

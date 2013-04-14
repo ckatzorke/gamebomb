@@ -1,1 +1,65 @@
-config
+<form>
+    <fieldset>
+        <legend><img src="../img/logo-gb.png"  width="56" height="37">GiantBomb API Key</legend>
+        <label>API Key</label>
+        <input type="text" placeholder="Enter API key…" size="50" ng-model="config.apikey">
+        <p class="help-block">Please enter your GiantBomb API key here. You can get your API key @ <a href="http://www.giantbomb.com/api">GiantBomb</a> </p>
+        <p class="help-block"><strong>Why do I need an API key</strong></p>
+        <p class="help-block">Quote from GiantBomb
+        <blockquote>These APIs provide full access to our structured-wiki content data in XML and JSON formats. It does not provide data specific to our userbase. You must sign up for a unique api key for each site individually.</blockquote>
+        This means, GiantBomb provides well maintained data in a structured way for non commercial use, but you would need an API key to access this data. It is worth it.</p>
+    </fieldset>
+</form>
+<hr>
+<form>
+    <fieldset>
+        <legend><img src="../img/ps_logo.jpg"  width="56" height="37">PlayStation®Network Portable ID</legend>
+        <div class="row">
+            <div class="span6">
+                <label>PSN ID</label>
+                <input type="text" placeholder="Enter PSN ID…" size="50" ng-model="config.psnid">
+                <label>Portable ID</label>
+                <textarea ng-model="config.portableid" placeholder="Enter the markup for your portable id" rows="6"></textarea>
+                <span class="help-block">
+                    Enter the markup from your portable id.<br>
+                    You can get your portable id at <a href="http:///www.playstation.com" target="_blank">http://www.playstation.com</a>.
+                </span>
+            </div>
+            <div class="span6">
+                <span ng-bind-html-unsafe="config.portableid"></span>
+            </div>
+        </div>
+    </fieldset>
+</form>
+<hr>
+<form class="">
+    <fieldset>
+        <legend><img src="../img/xbox_logo.jpg"  width="56" height="37">XBOX Gamertag</legend>
+        <div class="row">
+            <div class="span6">
+                <label><a href="http://www.xboxgamertag.com/">XBox gamertag</a></label>
+                <input type="text" placeholder="Enter XBox Gamertag…" size="50" ng-model="config.xbox.gamertag">
+                <label>Theme</label>
+                <select id="theme" ng-model="config.xbox.theme">
+                    <option value="arancia">Arancia (300px x 135px)</option>
+                    <option value="fullnxe">Full NXE (300px x 135px)</option>
+                    <option value="newnxe">New NXE (200px x 135px)</option>
+                    <option value="oldxbox">Old Xbox (199px x 135px)</option>
+                    <option value="tempo">Tempo (341px x 150px)</option>
+                </select>  <br>
+                <button type="button" class="btn" ng-click="previewXBoxGamertag()"><i class="icon-eye-open"></i> Update</button>
+
+            </div>
+            <div class="span6">
+                <p>
+                    <a href="http://www.xboxgamertag.com/search/{{config.xbox.gamertag}}/"><img class="img-polaroid" src="{{xboxgamertagurl}}" alt="{{config.xbox.gamertag}}'s Gamercard" title="{{config.xbox.gamertag}}'s Gamercard" border=0/></a>
+                </p>
+            </div>
+        </div>
+    </fieldset>
+    <hr>
+    <fieldset>
+        <button type="submit" class="btn" ng-click="save()"><i class="icon-save"></i> Save config</button>
+    </fieldset>
+</form>
+</form>

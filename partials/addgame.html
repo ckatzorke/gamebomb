@@ -1,1 +1,22 @@
-Add
+<legend>Add game to collection</legend>
+<form class="form-horizontal">
+    <div class="input-prepend">
+        <span class="add-on"><i class="icon-search"></i></span>
+        <input type="text" ng-model="searchText"  size="30" placeholder="search here" />
+    </div>
+    <button class="btn" ng-click="performSearch()"><i class="icon-angle-right"></i> Search</button>
+</form>
+<span class="help-block">Search for the game you want to add.</span>
+<div ng-show="searching">
+    <div class="well well-large well-transparent lead">
+        <i class="icon-spinner icon-spin  pull-left"></i> Searching for '{{searchText}}'...
+    </div>
+</div>
+<legend>Results</legend>
+<table class="table table-striped">
+    <tr ng-repeat="result in searchResult.results">
+        <td><a href="{{result.site_detail_url}}"><span ng-bind-html="result.name|highlightText:searchText"></span></a></td>
+        <td>{{displayPlatforms(result.platforms)}}</td>
+        <td>{{result.original_release_date|displayDate}}</td>
+    </tr>
+</table>
